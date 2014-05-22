@@ -7,6 +7,7 @@
 
 const int soundPin = 2;
 const int motionPin = 3;
+const int ledPin = 13;
 
 volatile int soundFlag = false;
 volatile int motionFlag = false;
