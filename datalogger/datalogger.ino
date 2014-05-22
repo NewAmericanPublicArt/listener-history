@@ -1,9 +1,9 @@
 #define END 0
 #define START 1
 
+#include <Wire.h>
 #include "RTClib.h"
 #include "SD.h"
-#include <Wire.h>
 
 const int soundPin = 2;
 const int motionPin = 3;
@@ -27,7 +27,7 @@ void setup() {
     attachInterrupt(0, setSoundFlag, CHANGE);
     attachInterrupt(1, setMotionFlag, CHANGE);
     
-    # need to add code to create new logfile on SD card at power-up
+    // need to add code to create new logfile on SD card at power-up
 }
 
 void loop() {
@@ -36,7 +36,7 @@ void loop() {
         writeToLog(soundFlag, motionFlag, soundEventType, motionEventType);
         soundFlag = false;
         motionFlag = false;
-        delay(500); # to ensure the LED flash is visible and we don't write insanely fast
+        delay(500); // to ensure the LED flash is visible and we don't write insanely fast
         digitalWrite(ledPin, LOW);
     }
 }
@@ -61,5 +61,5 @@ void setMotionFlag() {
 
 void writeToLog(int soundFlag, int motionFlag, int soundEventType, int motionEventType) {
     DateTime now = RTC.now();
-    # need to add code to actually write to SD card
+    // need to add code to actually write to SD card
 }
